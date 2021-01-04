@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktiv Bank</title>
+</head>
+<body>
+    <div>
+        <% if (error) { %>
+            <span><%= error %></span>
+        <% } %>
+    </div>
+    <div>
+        <form method="POST" action="/customers/<%= output.id %>/editProfile">
+            <p>
+                <label for="identityNumber">ID Number:</label><br>
+                <input type="text" value="<%= output.identityNumber %>" name="identityNumber">
+            </p>
+            <p>
+                <label for="fullName">Full Name:</label><br>
+                <input type="text" value="<%= output.fullName %>"" name="fullName">
+            </p>
+            <p>
+                <label for="address">Address:</label><br>
+                <input type="text" value="<%= output.address %>" name="address">
+            </p>
+            <p>
+                <label for="birthDate">Birth Date:</label><br>
+                <input type="date" name="birthDate" value="<%= output.birthDate.toISOString().split("T")[0] %>">
+            </p>
+            <p>
+                <label for="gender">Gender:</label><br>
+                <input type="radio" name="gender" value="male" <%= (output.gender === 'male') ? 'checked' : '' %>><label for="male">male</label>
+                <input type="radio" name="gender" value="female" <%= (output.gender === 'female') ? 'checked' : '' %>><label for="female">female</label>
+                <input type="radio" name="gender" value="other" <%= (output.gender === 'other') ? 'checked' : '' %>><label for="other">other</label>
+            </p>
+            <p>
+                <input type="submit" value="Edit">
+            </p>
+        </form>
+    </div>
+    <div>
+        <a href="/customers">Back</a>
+    </div>
+</body>
+</html>

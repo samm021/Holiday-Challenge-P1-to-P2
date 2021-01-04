@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktiv Bank</title>
+</head>
+<body>
+    <div>
+        <p>Transfer from: <b><%= output.accountNumber + ' ' + output.type + ' ' + toLocale(output.balance) %> </b> </p>
+    </div>
+    <div>
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %> 
+    </div>
+    <div>
+        <form action="/customers/<%= output.CustomerId %>/accounts/<%= output.id %>/transfer" method="POST">
+            <p>
+                <label for="amount">Amount</label><br>
+                <input type="text" name="amount" placeholder="0">
+            </p>
+            <p>
+                <label for="id">Transfer to:</label><br>
+                <select name="id">
+                    <% for (let i = 0; i < output2.length; i++) { %>
+                        <option value="<%= output2[i].id %>"><%= output2[i].accountNumber + ' - ' + output2[i].Customer.fullName %></option>
+                    <% } %>
+                </select>
+            </p>
+            <p>
+                <input type="submit" value="Transfer">
+            </p>
+        </form>
+    </div>
+    <div>
+        <a href="/customers">Back</a>
+    </div>
+</body>
+</html>

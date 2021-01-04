@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktiv Bank</title>
+</head>
+<body>
+    <div>
+        <h1>Welcome to Hacktiv Bank</h1>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Identity Number</th>
+                <th>Full Name</th>
+                <th>Action</th>
+            </tr>
+            <% for (let i = 0; i < output.length; i++) { %>
+                <tr>
+                    <td><%= output[i].identityNumber %></td>
+                    <td><%= output[i].fullName %></td>
+                    <td>
+                        <a href="/customers/<%= output[i].id %>/accounts">View Account</a>
+                        <span> || </span>
+                        <a href="/customers/<%= output[i].id %>/editProfile">Edit Profile</a>
+                    </td>
+                </tr>
+            <% } %>
+        </table>    
+    </div>
+    <div>
+        <a href="/customers/register">Register new customer</a>
+    </div>
+</body>
+</html>

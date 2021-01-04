@@ -1,0 +1,30 @@
+{
+  "name": "holidays_challenge",
+  "version": "1.0.0",
+  "description": "Hacktiv 8 RMT 07 Glasgow Fox - Holidays Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samm021/holidays_challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samm021/holidays_challenge/issues"
+  },
+  "homepage": "https://github.com/samm021/holidays_challenge#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0"
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktiv Bank</title>
+</head>
+<body>
+    <div>
+        <% if (error) { %>
+            <span><%= error %></span>
+        <% } %>
+    </div>
+    <div>
+        <form method="POST" action="/customers/register">
+            <p>
+                <label for="identityNumber">ID Number:</label><br>
+                <input type="text" placeholder="input your id number" name="identityNumber">
+            </p>
+            <p>
+                <label for="fullName">Full Name:</label><br>
+                <input type="text" placeholder="input your full name" name="fullName">
+            </p>
+            <p>
+                <label for="address">Address:</label><br>
+                <input type="text" placeholder="input your address" name="address">
+            </p>
+            <p>
+                <label for="birthDate">Birth Date:</label><br>
+                <input type="date" name="birthDate">
+            </p>
+            <p>
+                <label for="gender">Gender:</label><br>
+                <input type="radio" name="gender" value="male"><label for="male">male</label>
+                <input type="radio" name="gender" value="female"><label for="female">female</label>
+                <input type="radio" name="gender" value="other"><label for="other">other</label>
+            </p>
+            <p>
+                <input type="submit" value="Register">
+            </p>
+        </form>
+    </div>
+    <div>
+        <a href="/customers">Back</a>
+    </div>
+</body>
+</html>

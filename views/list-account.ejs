@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktiv Bank</title>
+</head>
+<body>
+    <div>
+        <h3>Good day, <%= output.fullName %></h3>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Account Number</th>
+                <th>Type</th>
+                <th>Balance</th>
+                <th>Action</th>
+            </tr>
+            <% if (output.Accounts) { %>
+                <% for (let i = 0; i < output.Accounts.length; i++) { %>
+                    <tr>
+                        <td><%= output.Accounts[i].accountNumber %></td>
+                        <td><%= output.Accounts[i].type %></td>
+                        <td><%= toLocale(output.Accounts[i].balance) %></td>
+                        <td><a href="/customers/<%= output.id %>/accounts/<%= output.Accounts[i].id %>/transfer">transfer</a></td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </table>
+    </div>
+    <div>
+        <h3>Add Account</h3>
+    </div>
+    <div>
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %> 
+    </div>
+    <div>
+        <form method="POST" action="/customers/<%= output.id %>/accounts">
+            <p>
+                <label for="type">Account Type:</label>
+                <select name="type">
+                    <option value="On Account">On Account</option>
+                    <option value="Xtra Payroll">Xtra Payroll</option>
+                    <option value="Tabunganku">Tabunganku</option>
+                </select>
+            </p>
+            <p>
+                <label for="balance">Balance:</label>
+                <input type="text" name="balance" placeholder="0">
+            </p>
+            <p>
+                <input type="submit" value="save">
+            </p>
+        </form>
+    </div>
+    <div>
+        <a href="/customers">Back</a>
+    </div>
+</body>
+</html>
